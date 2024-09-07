@@ -1,3 +1,10 @@
+#The credit card clients dataset is full of irregularities and incorrect values. 
+#It need to replace them with the right values.This dataset contains information on default payments, 
+#demographic factors, credit data, history of payment, and bill statements of credit card clients.There are 25 features in 
+#the dataset.The original dataset from the UCI Machine Learning repository:
+#https://archive.ics.uci.edu/ml/datasets/default+of+credit+card+clients
+
+
 # Import the modules.
 import numpy as np
 import pandas as pd
