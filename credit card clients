@@ -1,0 +1,47 @@
+# Import the modules.
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+cc_csv = 'https://student-datasets-bucket.s3.ap-south-1.amazonaws.com/whitehat-ds-datasets/uci-credit-card-fraud/UCI_Credit_Card.csv'
+df = pd.read_csv(cc_csv)
+df.head()
+
+# Number of rows and columns.
+print("\nNumber of rows and columns:",df.shape)
+
+# Check for the missing values.
+print("\nmissing values:\n",)
+print(df.isnull().sum(),"\n")
+
+# Check the data-types of all the columns using the 'info()' function.
+df.info()
+
+# Counts of each value in the 'EDUCATION' column.
+print(df['EDUCATION'].value_counts())
+
+# Check the data-type of the 'EDUCATION' column.
+print("\ndata-type of the 'EDUCATION' column:",df['EDUCATION'].dtype)
+print("\n")
+
+# Replace the unwanted values in the 'EDUCATION' column. Ignore if there are none.
+df.loc[df['EDUCATION'] == 0, 'EDUCATION'] = 5
+df.loc[df['EDUCATION'] == 6, 'EDUCATION'] = 5
+print(df['EDUCATION'].value_counts())
+
+# Count plot for the 'EDUCATION' column.
+sns.countplot(x='EDUCATION', data=df)
+plt.show()
+print("\n\n")
+
+# Box plot for the 'AGE' column.
+plt.figure(figsize=(20, 1.5))
+sns.boxplot(x='AGE', data=df)
+plt.show()
+
+# Histogram for the 'AGE' column.
+plt.figure(figsize=(20, 5))
+sns.distplot(df['AGE'])
+plt.grid(True)
+plt.show()
